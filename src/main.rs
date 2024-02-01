@@ -58,6 +58,8 @@ struct SimpleUnit {
     points: Vec<i32>,
 }
 
+// todo!("update the points to read from unit-points rahter than tyranids.json");
+
 async fn tyranids() -> Result<Json<Vec<SimpleUnit>>, Box<dyn Error>> {
     let list = fs::read_to_string("data/tyranids/tyranids.json").await?;
     let data: Value = serde_json::from_str(&list)?;
