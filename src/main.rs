@@ -59,7 +59,7 @@ struct SimpleUnit {
 }
 
 async fn tyranids() -> Result<Json<Vec<SimpleUnit>>, Box<dyn Error>> {
-    let list = fs::read_to_string("data/tyranids.json").await?;
+    let list = fs::read_to_string("data/tyranids/tyranids.json").await?;
     let data: Value = serde_json::from_str(&list)?;
 
     let mut units = Vec::new();
@@ -79,30 +79,8 @@ async fn tyranids() -> Result<Json<Vec<SimpleUnit>>, Box<dyn Error>> {
     Ok(Json(units))
 }
 
-#[get("/")]
-async fn hello() -> impl Responder {
-    HttpResponse::Ok().body(
-        "
-        Welcome to the Warhammer 40k army roster API. Here are instructions on how to use this API:
-        To see a full list of all the army units then add a suffix of the army name. 
-        For example `/tyranids` will return a list of all the tyranid units
-        ",
-    )
-}
-
-#[get("/tyranids")]
-async fn tyranids_get_list() -> impl Responder {
-    match tyranids().await {
-        Ok(units) => HttpResponse::Ok().json(units), // Respond with JSON
-        Err(e) => {
-            eprintln!("Failed to read units: {}", e);
-            HttpResponse::InternalServerError().body(format!("Failed to read units: {}", e))
-        }
-    }
-}
-
 async fn tyranids_unit(query_string: String) -> Result<Json<SimpleUnit>, Box<dyn Error>> {
-    let list = fs::read_to_string("data/tyranids.json").await?;
+    let list = fs::read_to_string("data/tyranids/tyranids.json").await?;
     let data: Value = serde_json::from_str(&list)?;
 
     if let Some(unit_list) = data.as_array() {
@@ -126,6 +104,28 @@ async fn tyranids_unit(query_string: String) -> Result<Json<SimpleUnit>, Box<dyn
         std::io::ErrorKind::NotFound,
         "Unit not found",
     )))
+}
+
+#[get("/")]
+async fn hello() -> impl Responder {
+    HttpResponse::Ok().body(
+        "
+        Welcome to the Warhammer 40k army roster API. Here are instructions on how to use this API:
+        To see a full list of all the army units then add a suffix of the army name. 
+        For example `/tyranids` will return a list of all the tyranid units
+        ",
+    )
+}
+
+#[get("/tyranids")]
+async fn tyranids_get_list() -> impl Responder {
+    match tyranids().await {
+        Ok(units) => HttpResponse::Ok().json(units), // Respond with JSON
+        Err(e) => {
+            eprintln!("Failed to read units: {}", e);
+            HttpResponse::InternalServerError().body(format!("Failed to read units: {}", e))
+        }
+    }
 }
 
 #[get("/unit")]

@@ -1,0 +1,58 @@
+{
+  "enhancements": [
+    {
+      "name": "Assimilation Swarm",
+      "options": [
+        { "name": "Biophagic Flow", "points": 10 },
+        { "name": "Instinctive Defence", "points": 15 },
+        { "name": "Parasitic Biomorphology", "points": 25 },
+        { "name": "Regenerating Monstrosity", "points": 20 }
+      ]
+    },
+    {
+      "name": "Crusher Stampede",
+      "options": [
+        { "name": "Enraged Reserves", "points": 20 },
+        { "name": "Monstrous Nemesis", "points": 25 },
+        { "name": "Null Nodules", "points": 10 },
+        { "name": "Ominous Presence", "points": 15 }
+      ]
+    },
+    {
+      "name": "Invasion Fleet",
+      "options": [
+        { "name": "Adaptive Biology", "points": 25 },
+        { "name": "Alien Cunning", "points": 30 },
+        { "name": "Perfectly Adapted", "points": 15 },
+        { "name": "Synaptic Linchpin", "points": 20 }
+      ]
+    },
+    {
+      "name": "Synaptic Nexus",
+      "options": [
+        { "name": "Power of the Hive Mind", "points": 10 },
+        { "name": "Psychostatic Disruption", "points": 30 },
+        { "name": "Synaptic Control", "points": 20 },
+        { "name": "The Dirgeheart of Kharis", "points": 15 }
+      ]
+    },
+    {
+      "name": "Unending Swarm",
+      "options": [
+        { "name": "Adrenalised Onslaught", "points": 15 },
+        { "name": "Naturalised Camouflage", "points": 30 },
+        { "name": "Piercing Talons", "points": 25 },
+        { "name": "Relentless Hunger", "points": 20 }
+      ]
+    },
+    {
+      "name": "Vanguard Onslaught",
+      "options": [
+        { "name": "Chameleonic", "points": 15 },
+        { "name": "Hunting Grounds", "points": 20 },
+        { "name": "Neuronode", "points": 30 },
+        { "name": "Stalker", "points": 10 }
+      ]
+    }
+  ]
+}
